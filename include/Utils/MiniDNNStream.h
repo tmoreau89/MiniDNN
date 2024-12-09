@@ -401,7 +401,7 @@ int activation_type(std::string type)
 int output_type(std::string type)
 {
     M_Assert(type == "RegressionMSE" || type == "MultiClassEntropy" ||
-             type == "BinaryClassEntropy", "output is not of a known type");
+             type == "BinaryClassEntropy" || type == "KLDivergenceLoss", "output is not of a known type");
     int out;
 
     if (type == "RegressionMSE")

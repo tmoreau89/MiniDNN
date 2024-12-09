@@ -70,7 +70,8 @@ enum OUTPUT_ENUM
 {
     REGRESSION_MSE = 0,
     BINARY_CLASS_ENTROPY,
-    MULTI_CLASS_ENTROPY
+    MULTI_CLASS_ENTROPY,
+    KL_DIVERGENCE_LOSS
 };
 
 // Convert an output layer type string to an integer
@@ -82,6 +83,8 @@ inline int output_id(const std::string& type)
         return BINARY_CLASS_ENTROPY;
     if (type == "BinaryClassEntropy")
         return MULTI_CLASS_ENTROPY;
+    if (type == "KLDivergenceLoss")
+        return KL_DIVERGENCE_LOSS;
 
     throw std::invalid_argument("[function output_id]: Output is not of a known type");
     return -1;

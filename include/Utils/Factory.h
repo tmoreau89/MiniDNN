@@ -24,6 +24,7 @@
 #include "../Output/RegressionMSE.h"
 #include "../Output/BinaryClassEntropy.h"
 #include "../Output/MultiClassEntropy.h"
+#include "../Output/KLDivergenceLoss.h"
 
 namespace MiniDNN
 {
@@ -167,6 +168,8 @@ inline Output* create_output(const std::map<std::string, int>& map)
         return new BinaryClassEntropy();
     case MULTI_CLASS_ENTROPY:
         return new MultiClassEntropy();
+    case KL_DIVERGENCE_LOSS:
+        return new KLDivergenceLoss();
     default:
         throw std::invalid_argument("[function create_output]: Output is not of a known type");
     }
